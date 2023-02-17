@@ -5,18 +5,15 @@
 
 // buffer is a temporary memory that stores 
 // the converted ascii scring of decimal number
-#include <stdio.h>
+#include <mylib.h>
 
-#define BUFSIZE 10
-char buffer[BUFSIZE] ;
-
-extern size_t strlen(const char *str) ;
-void flipstr(char *str) ;
+//#define BUFSIZE 10
+//char buffer[BUFSIZE] ;
 
 const char hex[] = "0123456789abcdef" ;
 int ItoA(int ivalue, char *buffer, int radix)
 {
-    int count, i;
+    int i = 0;
     unsigned int uivalue ;
 
     uivalue = ivalue ;
@@ -25,6 +22,7 @@ int ItoA(int ivalue, char *buffer, int radix)
 
     switch(radix){
         case 2:
+        case 8:
         case 16:
         /*
             buffer[0] = '0' ;
@@ -91,26 +89,3 @@ void flipstr(char *str)
     }
 }
 
-int main(void){
-    int x = 135 ;
-    int y = -257 ;
-    int len ; 
-
-    len = ItoA(x, buffer, 10);
-    printf("%d value is %s\n", x, buffer);
-    len = ItoA(y, buffer, 10);
-    printf("%d value is %s\n", y, buffer);
-
-    len = ItoA(x, buffer, 16);
-    printf("%x value is %s\n", x, buffer);
-    len = ItoA(y, buffer, 16);
-    printf("%x value is %s\n", y, buffer);
-
-    len = ItoA(x, buffer, 2);
-    printf("%x value is %s\n", x, buffer);
-    len = ItoA(y, buffer, 2);
-    printf("%x value is %s\n", y, buffer);
-
-    //printf("-135 is %x, 257 is %lx address of x is %p\n", x, &y, &x);
-    return 0 ;
-}

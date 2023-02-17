@@ -14,7 +14,8 @@ int main(int argc, char *argv[])
     myprintf("This is %s text\n","sample");
     myprintf("Integer data : %d %x\n", data, data);
     myprintf("Hello %s %c\n",str, ch);
-    myprintf("pointer value of str is  %p n",str);
+    myprintf("pointer value of str is  %p \n",str);
+    myprintf("int size : %d, long size : %d, char size : %d\n",sizeof(int), sizeof(long), sizeof(char));
 
     while(1) ;
 
